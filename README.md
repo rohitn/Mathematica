@@ -4,9 +4,8 @@ https://www.wolframcloud.com/obj/0.kai.rharris/Published/03-first-look-at-lists-
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/04-displaying-lists-exercises.nb
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/05-operations-on-lists-exercises.nb
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/06-making-tables-exercises.nb
+
 https://www.wolfram.com/language/elementary-introduction/2nd-ed/07-colors-and-styles.html
 
 
 
-
-https://www.wolfram.com/language/elementary-introduction/2nd-ed/06-making-tables.html
