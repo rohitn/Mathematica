@@ -9,4 +9,4 @@ https://www.wolframcloud.com/obj/0.kai.rharris/Published/08-basic-graphics-objec
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/09-interactive-manipulation-exercises.nb
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/13-arrays-or-lists-of-lists-exercises.nb
 
-
+https://www.wolframcloud.com/obj/0.kai.rharris/Published/brownianMotionInteract.nb
