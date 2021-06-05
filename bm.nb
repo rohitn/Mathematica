@@ -1,0 +1,6 @@
+Manipulate[
+ListPointPlot3D[
+Table[Sin[n*k(i+j+p)], {i, 0, 3, 0.1}, {j, 0, 3, 0.1}]],
+{n,1,5, 0.5},
+{k, 1,5,0.5},
+{p,1,5,0.5}]
