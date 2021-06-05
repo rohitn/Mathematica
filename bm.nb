@@ -4,3 +4,8 @@ Table[Sin[n*k(i+j+p)], {i, 0, 3, 0.1}, {j, 0, 3, 0.1}]],
 {n,1,5, 0.5},
 {k, 1,5,0.5},
 {p,1,5,0.5}]
+
+(*  Geometric Brownian motion SDE  *)
+(*//  dS_t = mu*S_t*dt + sigma*S_t*d*W_t  //*)
+(* where W_t is a Wiener Process/Brownian Motion *)
+(*  *)
