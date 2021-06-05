@@ -14,4 +14,9 @@ Table[Sin[n*k(i+j+p)], {i, 0, 3, 0.1}, {j, 0, 3, 0.1}]],
 (*// S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* W_t) //*)
 
 (* Wiener Process/Brownian Motion *)
-(*  *)
+(* 
+   1. W_0 = 0
+   2. W has independent increments: for every t > 0, W_(t+u) - W_t, u>=0, are independent of the past values W_s, s <= t
+   3. W has gaussian inrements: W_(t+u) - W_t ~ N(0, u)
+   4. W has continuos paths: W_t continuous in t
+*)
