@@ -9,7 +9,10 @@ Table[Sin[n*k(i+j+p)], {i, 0, 3, 0.1}, {j, 0, 3, 0.1}]],
 
 (*//  dS_t = mu*S_t*dt + sigma*S_t*d*W_t  //*)
 (* where W_t is a Wiener Process/Brownian Motion *)
-(*  *)
+(* here we say that:
+mu is a percentage drift: i.e how much a particle drifts per unit time
+sigma is the percentage volatility: i.e how likely the particle is to make ranom movements per unit time
+*)
 
 (* Analytic solution *)
 (* solved with an ito integral *)
@@ -33,5 +36,7 @@ dt = 0.1
 sigma = Table[x, {x,0.8,1.8,0.2}]
 numOfProcesses = Length[sigma]
 sampleSize  = 50
-sigSqr =( mu - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*dt
+sigSqr = ( mu - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*dt
 finDist = sigSqr + sigma * Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize],numOfProcesses]
+
+
