@@ -9,8 +9,10 @@ Table[Sin[n*k(i+j+p)], {i, 0, 3, 0.1}, {j, 0, 3, 0.1}]],
 
 (*//  dS_t = mu*S_t*dt + sigma*S_t*d*W_t  //*)
 (* where W_t is a Wiener Process/Brownian Motion *)
+(*  *)
 
-(* Analytic solution  *)
+(* Analytic solution *)
+(* solved with an ito integral *)
 (*// S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* W_t) //*)
 
 (* Wiener Process/Brownian Motion *)
@@ -19,4 +21,17 @@ Table[Sin[n*k(i+j+p)], {i, 0, 3, 0.1}, {j, 0, 3, 0.1}]],
    2. W has independent increments: for every t > 0, W_(t+u) - W_t, u>=0, are independent of the past values W_s, s <= t
    3. W has gaussian inrements: W_(t+u) - W_t ~ N(0, u)
    4. W has continuos paths: W_t continuous in t
+   
+   // basically, a wiener process is continuous, randomly distributed with a normal distribution and begins at 0 //
 *)
+
+(* Analytic solution becomes ... *)
+(* // S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* randomNormal(0, sqrt(t))) // *)
+
+mu = 1
+dt = 0.1
+sigma = Table[x, {x,0.8,1.8,0.2}]
+numOfProcesses = Length[sigma]
+sampleSize  = 50
+sigSqr =( mu - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*dt
+finDist =sigSqr + sigma * Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize],numOfProcesses]
