@@ -34,4 +34,4 @@ sigma = Table[x, {x,0.8,1.8,0.2}]
 numOfProcesses = Length[sigma]
 sampleSize  = 50
 sigSqr =( mu - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*dt
-finDist =sigSqr + sigma * Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize],numOfProcesses]
+finDist = sigSqr + sigma * Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize],numOfProcesses]
