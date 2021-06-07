@@ -47,7 +47,7 @@ sigSqr = ( mu - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*dt
 randNorm =Table[sigma*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize],numOfProcesses]]}]
 exp = Table[Exp[x],{x,Table[sigSqr + y, {y, randNorm}]}]
 preProcess = Prepend[exp, Table[1, numOfProcesses]]
-cumulativeProd = Table[s0*x,{x,Rest[FoldList[Times, 1, preProcess0]]}]
+cumulativeProd = Table[s0*x,{x,Rest[FoldList[Times, 1, preProcess]]}]
 patterns = Transpose[cumulativeProd]
 (* solution visualisation *)
 ListLinePlot[patterns]
