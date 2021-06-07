@@ -43,3 +43,12 @@ ListLinePlot[patterns]
 
 geoBM = Transpose[Table[100*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x],{x,Table[( 1 - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*0.1 + y, {y, Table[Table[x, {x,0.8,1.8,0.2}]*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], 50], Length[Table[x, {x,0.8,1.8,0.2}]]]]}]}]}], Table[1,  Length[Table[x, {x,0.8,1.8,0.2}]]]]]]}]]
 ListLinePlot[geoBM]
+
+(* we can now manipulate the arguments and form an interactive visualisation of changes in the motion of the particle in question *)
+
+Manipulate[
+ListLinePlot[Transpose[Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x],{x,Table[( mu - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*dt + y, {y, Table[Table[x, {x,0.8,1.8,0.2}]*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], 50], Length[Table[x, {x,0.8,1.8,0.2}]]]]}]}]}], Table[1,  Length[Table[x, {x,0.8,1.8,0.2}]]]]]]}]]],
+{mu,1,5,1 },
+{s0,100,150,10},
+{dt,0.1,1,0.05}
+]
