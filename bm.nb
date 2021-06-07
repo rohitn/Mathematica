@@ -29,6 +29,7 @@ sigma is the percentage volatility: i.e how likely the particle is to make ranom
 
 (* Analytic solution becomes ... *)
 (* // S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* randomNormal(0, sqrt(t))) // *)
+(* translates to: cumulative product of past exponentials *)
 mu = 1
 s0 = 100
 dt = 0.1
