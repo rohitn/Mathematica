@@ -1,3 +1,10 @@
+Manipulate[
+ListPointPlot3D[
+Table[Sin[n*k(i+j+p)], {i, 0, 3, 0.1}, {j, 0, 3, 0.1}]],
+{n,1,5, 0.5},
+{k, 1,5,0.5},
+{p,1,5,0.5}]
+
 (*  Geometric Brownian motion SDE  *)
 
 (*//  dS_t = mu*S_t*dt + sigma*S_t*d*W_t  //*)
@@ -36,16 +43,13 @@ exp = Table[Exp[x],{x,Table[sigSqr + y, {y, randNorm}]}]
 preProcess = Prepend[exp, Table[1, numOfProcesses]]
 cumulativeProd = Table[s0*x,{x,Rest[FoldList[Times, 1, preProcess0]]}]
 patterns = Transpose[cumulativeProd]
-
 ListLinePlot[patterns]
 
 (* condensed expression for geometric brownian motion *)
-
 geoBM = Transpose[Table[100*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x],{x,Table[( 1 - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*0.1 + y, {y, Table[Table[x, {x,0.8,1.8,0.2}]*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], 50], Length[Table[x, {x,0.8,1.8,0.2}]]]]}]}]}], Table[1,  Length[Table[x, {x,0.8,1.8,0.2}]]]]]]}]]
 ListLinePlot[geoBM]
 
 (* we can now manipulate the arguments and form an interactive visualisation of changes in the motion of the particle in question *)
-
 Manipulate[
 ListLinePlot[Transpose[Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x],{x,Table[( mu - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*dt + y, {y, Table[Table[x, {x,0.8,1.8,0.2}]*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], 50], Length[Table[x, {x,0.8,1.8,0.2}]]]]}]}]}], Table[1,  Length[Table[x, {x,0.8,1.8,0.2}]]]]]]}]]],
 {mu,1,5,1 },
