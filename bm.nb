@@ -34,6 +34,8 @@ Analytic solution becomes:
 Which translates to: cumulative product inner expression
 ------------------------------------------------------------------------------------------------------*)
 
+(* plot single geometric brownian motion pattern *)
+
 mu = 1
 s0 = 100
 (* considering small-ish timestep dt  = 0.1*)
@@ -64,4 +66,13 @@ ListLinePlot[Transpose[Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x
 {s0,100,150,10},
 {sigM, 1.2, 5, 0.1}
 ]
+
+(* 3d Geometric Brownian motion -------- 
+Approach: Begin with 3d Wiener Process and build up, plot 1d wiener process
+ 
+
+
+
+*)
+
  
