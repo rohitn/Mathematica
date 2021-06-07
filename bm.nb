@@ -5,51 +5,59 @@ Table[Sin[n*k(i+j+p)], {i, 0, 3, 0.1}, {j, 0, 3, 0.1}]],
 {k, 1,5,0.5},
 {p,1,5,0.5}]
 
-(*  Geometric Brownian motion SDE  *)
+(* General Overview of 2d Geometric Brownian Motion ------------------------------------------
 
-(*//  dS_t = mu*S_t*dt + sigma*S_t*d*W_t  //*)
-(* where W_t is a Wiener Process/Brownian Motion *)
-(* here we say that:
-mu is a percentage drift: i.e how much a particle drifts per unit time
-sigma is the percentage volatility: i.e how likely the particle is to make ranom movements per unit time
-*)
+Geometric Brownian motion SDE
+ dS_t = mu*S_t*dt + sigma*S_t*d*W_t
+Where:
+ W_t is a Wiener Process/Brownian Motion
+Here we say that:
+ mu is a percentage drift: i.e how much a particle drifts per unit time
+ sigma is the percentage volatility: i.e how likely the particle is to make ranom movements per unit time
 
-(* Analytic solution *)
-(* solved with an ito integral *)
-(*// S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* W_t) //*)
 
-(* Wiener Process/Brownian Motion *)
-(* 
+Analytic solution:
+ S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* W_t)
+Solved with an ito integral.
+
+Wiener Process/Brownian Motion 
+ 
    1. W_0 = 0
    2. W has independent increments: for every t > 0, W_(t+u) - W_t, u>=0, are independent of the past values W_s, s <= t
    3. W has gaussian inrements: W_(t+u) - W_t ~ N(0, u)
    4. W has continuos paths: W_t continuous in t
    
-   // basically, a wiener process is continuous, randomly distributed with a normal distribution and begins at 0 //
-*)
+Basically, a wiener process is continuous, randomly distributed with a normal distribution and begins at 0.
 
-(* Analytic solution becomes ... *)
-(* // S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* randomNormal(0, sqrt(t))) // *)
-(* translates to: cumulative product of past exponentials *)
+Analytic solution becomes:
+ S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* randomNormal(0, sqrt(t)))
+Which translates to: cumulative product inner expression
+------------------------------------------------------------------------------------------------------*)
+
 mu = 1
 s0 = 100
+(* considering small-ish timestep dt  = 0.1*)
 dt = 0.1
 sigma = Table[x, {x,0.8,1.8,0.2}]
+(* here we will plot multiple processes simultaneously, with 50 data points each *)
 numOfProcesses = Length[sigma]
 sampleSize  = 50
+(* generating data according to the above analytic solution *)
 sigSqr = ( mu - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*dt
 randNorm =Table[sigma*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize],numOfProcesses]]}]
 exp = Table[Exp[x],{x,Table[sigSqr + y, {y, randNorm}]}]
 preProcess = Prepend[exp, Table[1, numOfProcesses]]
 cumulativeProd = Table[s0*x,{x,Rest[FoldList[Times, 1, preProcess0]]}]
 patterns = Transpose[cumulativeProd]
+(* solution visualisation *)
 ListLinePlot[patterns]
 
-(* condensed expression for geometric brownian motion *)
-geoBM = Transpose[Table[100*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x],{x,Table[( 1 - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*0.1 + y, {y, Table[Table[x, {x,0.8,1.8,0.2}]*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], 50], Length[Table[x, {x,0.8,1.8,0.2}]]]]}]}]}], Table[1,  Length[Table[x, {x,0.8,1.8,0.2}]]]]]]}]]
-ListLinePlot[geoBM]
+(* here is a condensed version of the above expression for geometric brownian motion *)
+ListLinePlot[
+Transpose[Table[100*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x],{x,Table[( 1 - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*0.1 + y, {y, Table[Table[x, {x,0.8,1.8,0.2}]*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], 50], Length[Table[x, {x,0.8,1.8,0.2}]]]]}]}]}], Table[1,  Length[Table[x, {x,0.8,1.8,0.2}]]]]]]}]]
+]
 
-(* we can now manipulate the arguments and form an interactive visualisation of changes in the motion of the particle in question *)
+(*Forming an interactive visualisation of geoBM*)
 Manipulate[
 ListLinePlot[Transpose[Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x],{x,Table[( mu - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*dt + y, {y, Table[Table[x, {x,0.8,1.8,0.2}]*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], 50], Length[Table[x, {x,0.8,1.8,0.2}]]]]}]}]}], Table[1,  Length[Table[x, {x,0.8,1.8,0.2}]]]]]]}]]],
 {mu,1,5,1 },
