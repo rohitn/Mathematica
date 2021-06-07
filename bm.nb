@@ -4,7 +4,6 @@ Table[Sin[n*k(i+j+p)], {i, 0, 3, 0.1}, {j, 0, 3, 0.1}]],
 {n,1,5, 0.5},
 {k, 1,5,0.5},
 {p,1,5,0.5}]
-
 (*  Geometric Brownian motion SDE  *)
 
 (*//  dS_t = mu*S_t*dt + sigma*S_t*d*W_t  //*)
@@ -30,13 +29,17 @@ sigma is the percentage volatility: i.e how likely the particle is to make ranom
 
 (* Analytic solution becomes ... *)
 (* // S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* randomNormal(0, sqrt(t))) // *)
-
 mu = 1
+s0 = 100
 dt = 0.1
 sigma = Table[x, {x,0.8,1.8,0.2}]
 numOfProcesses = Length[sigma]
 sampleSize  = 50
 sigSqr = ( mu - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*dt
-finDist = sigSqr + sigma * Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize],numOfProcesses]
+randNorm =Table[sigma*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize],numOfProcesses]]}]
+exp = Table[Exp[x],{x,Table[sigSqr + y, {y, randNorm}]}]
+preProcess = Prepend[exp, Table[1, numOfProcesses]]
+cumulativeProd = Table[s0*x,{x,Rest[FoldList[Times, 1, preProcess0]]}]
+patterns = Transpose[cumulativeProd]
 
-
+ListLinePlot[patterns]
