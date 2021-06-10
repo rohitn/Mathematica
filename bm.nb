@@ -104,3 +104,15 @@ patternsy = Table[s0*x,{x,Rest[FoldList[Times, 1, preProcessy]]}]
 twoD = Transpose[{patternsx, patternsy} ]
 threeD = Table[Append[twoD[[x]],x], {x,Range[50]}]
 ListLinePlot3D[threeD]
+
+(*condensing code ... *)
+mu = 1
+s0 = 50
+(* considering small-ish timestep dt  = 0.1*)
+dt = 0.01
+sigma = 0.1
+(* here we will plot multiple processes simultaneously, with 50 data points each *)
+sampleSize  = 250
+(* solution visualisation *)
+ListLinePlot3D[Table[Append[Transpose[{Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}],  
+Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}]} ][[x]],x], {x,Range[sampleSize]}]]
