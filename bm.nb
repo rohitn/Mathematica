@@ -10,6 +10,12 @@ Basically, a wiener process is: continuous, randomly distributed,has a normal di
 We can express a wiener process as:
  dS_t = sigma*S_t*dW_t
 Where sigma is the variance of W_t
+ Analytic solution:
+ S_t = S_0 * e^(- sigma^2/2 * t + sigma* W_t)
+Solved with an ito integral.
+
+Analytic solution becomes:
+ S_t = S_0 * e^(- sigma^2/2 * t + sigma* randomNormal(0, sqrt(t)))
  
 -----*)
 
@@ -46,7 +52,6 @@ threeD = Table[Append[twoD[[x]],x], {x,Range[sampleSize]}]
 ListLinePlot3D[threeD]
 
 (* General Overview of 2d Geometric Brownian Motion ------------------------------------------
-
 Geometric Brownian motion SDE
  dS_t = mu*S_t*dt + sigma*S_t*d*W_t
 Where:
@@ -54,12 +59,9 @@ Where:
 Here we say that:
  mu is a percentage drift: i.e how much a particle drifts per unit time
  sigma is the percentage volatility: i.e how likely the particle is to make ranom movements per unit time
-
-
 Analytic solution:
  S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* W_t)
 Solved with an ito integral.
-
 Wiener Process/Brownian Motion 
  
    1. W_0 = 0
@@ -68,7 +70,6 @@ Wiener Process/Brownian Motion
    4. W has continuos paths: W_t continuous in t
    
 Basically, a wiener process is continuous, randomly distributed with a normal distribution and begins at 0.
-
 Analytic solution becomes:
  S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* randomNormal(0, sqrt(t)))
 Which translates to: cumulative product inner expression
