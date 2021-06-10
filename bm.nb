@@ -71,9 +71,27 @@ ListLinePlot[Transpose[Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x
 Approach: 
  - Begin with 3d Wiener Process and build up, plot 1d wiener process??
  - try using 2 random distributions: one for the x movement, one for the y movement, and increment z as per ususal??
-
-
-
 *)
 
- 
+mu = 1
+s0 = 100
+(* considering small-ish timestep dt  = 0.1*)
+dt = 0.1
+sigma = 0.8
+(* here we will plot multiple processes simultaneously, with 50 data points each *)
+sampleSize  = 50
+(* generating data according to the above analytic solution *)
+sigSqr = ( mu - sigma^2/2)*dt
+(* generate x,y co-ords *)
+randNormx =Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]
+randNormy =Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]
+expx = Exp[sigSqr + randNormx]
+expy = Exp[sigSqr + randNormy]
+preProcessx = Prepend[expx, 1]
+preProcessy = Prepend[expy, 1]
+patternsx = Table[s0*x,{x,Rest[FoldList[Times, 1, preProcessx]]}]
+patternsy = Table[s0*x,{x,Rest[FoldList[Times, 1, preProcessy]]}]
+(* solution visualisation *)
+twoD = Transpose[{patternsx, patternsy} ]
+threeD = Table[Append[twoD[[x]],x], {x,Range[50]}]
+ListLinePlot3D[threeD]
