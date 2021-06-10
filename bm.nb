@@ -84,12 +84,9 @@ Approach:
 *)
 mu = 1
 s0 = 100
-(* considering small-ish timestep dt  = 0.1*)
 dt = 0.1
 sigma = 0.8
-(* here we will plot multiple processes simultaneously, with 50 data points each *)
 sampleSize  = 50
-(* generating data according to the above analytic solution *)
 sigSqr = ( mu - sigma^2/2)*dt
 (* generate x,y co-ords *)
 randNormx =Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]
