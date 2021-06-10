@@ -47,13 +47,11 @@ ListLinePlot[patternsx]
 (* Plot Multiple Geometric Brownian motions simultaneously *)
 mu = 1
 s0 = 100
-(* considering small-ish timestep dt  = 0.1*)
 dt = 0.1
 sigma = Table[x, {x,0.8,1.8,0.2}]
 (* here we will plot multiple processes simultaneously, with 50 data points each *)
 numOfProcesses = Length[sigma]
 sampleSize  = 50
-(* generating data according to the above analytic solution *)
 sigSqr = ( mu - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*dt
 randNorm =Table[sigma*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize],numOfProcesses]]}]
 exp = Table[Exp[x],{x,Table[sigSqr + y, {y, randNorm}]}]
@@ -75,7 +73,6 @@ ListLinePlot[Transpose[Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x
 {s0,100,150,10},
 {sigM, 1.2, 5, 0.1}
 ]
-
 
 (* 3d Geometric Brownian motion -------- 
 Approach: 
