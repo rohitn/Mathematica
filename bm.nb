@@ -1,10 +1,3 @@
-Manipulate[
-ListPointPlot3D[
-Table[Sin[n*k(i+j+p)], {i, 0, 3, 0.1}, {j, 0, 3, 0.1}]],
-{n,1,5, 0.5},
-{k, 1,5,0.5},
-{p,1,5,0.5}]
-
 (* General Overview of 2d Geometric Brownian Motion ------------------------------------------
 
 Geometric Brownian motion SDE
@@ -35,7 +28,23 @@ Which translates to: cumulative product inner expression
 ------------------------------------------------------------------------------------------------------*)
 
 (* plot single geometric brownian motion pattern *)
+mu = 1
+s0 = 100
+(* considering small-ish timestep dt  = 0.1*)
+dt = 0.1
+sigma = 0.8
+sampleSize  = 50
+(* generating data according to the above analytic solution *)
+sigSqr = ( mu - sigma^2/2)*dt
+(* generate x co-ords *)
+randNormx =Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]
+expx = Exp[sigSqr + randNormx]
+preProcessx = Prepend[expx, 1]
+patternsx = Table[s0*x,{x,Rest[FoldList[Times, 1, preProcessx]]}]
+(* solution visualisation *)
+ListLinePlot[patternsx]
 
+(* Plot Multiple Geometric Brownian motions simultaneously *)
 mu = 1
 s0 = 100
 (* considering small-ish timestep dt  = 0.1*)
@@ -59,7 +68,7 @@ ListLinePlot[
 Transpose[Table[100*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x],{x,Table[( 1 - Table[sig^2/2,{sig, 0.8,1.8,0.2}])*0.1 + y, {y, Table[Table[x, {x,0.8,1.8,0.2}]*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[dt]], 50], Length[Table[x, {x,0.8,1.8,0.2}]]]]}]}]}], Table[1,  Length[Table[x, {x,0.8,1.8,0.2}]]]]]]}]]
 ]
 
-(*Forming an interactive visualisation of geoBM*)
+(*Forming an interactive visualisation of geoBM comparisons *)
 Manipulate[
 ListLinePlot[Transpose[Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x],{x,Table[( mu - Table[sig^2/2,{sig, 0.8,sigM,0.2}])*0.1 + y, {y, Table[Table[x, {x,0.8,sigM,0.2}]*z, {z,Transpose[Table[RandomVariate[NormalDistribution[0, Sqrt[0.1]], 50], Length[Table[x, {x,0.8,sigM,0.2}]]]]}]}]}], Table[1,  Length[Table[x, {x,0.8,sigM,0.2}]]]]]]}]]],
 {mu,1,5,1 },
