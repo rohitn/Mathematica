@@ -67,12 +67,12 @@ ListLinePlot[Transpose[Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x
 {sigM, 1.2, 5, 0.1}
 ]
 
+
 (* 3d Geometric Brownian motion -------- 
 Approach: 
  - Begin with 3d Wiener Process and build up, plot 1d wiener process??
  - try using 2 random distributions: one for the x movement, one for the y movement, and increment z as per ususal??
 *)
-
 mu = 1
 s0 = 100
 (* considering small-ish timestep dt  = 0.1*)
