@@ -116,3 +116,17 @@ sampleSize  = 250
 (* solution visualisation *)
 ListLinePlot3D[Table[Append[Transpose[{Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}],  
 Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}]} ][[x]],x], {x,Range[sampleSize]}]]
+
+(*3d interactive mersion *)
+s0 = 50
+(* considering small-ish timestep dt  = 0.1*)
+dt = 0.01
+(* here we will plot multiple processes simultaneously, with 50 data points each *)
+sampleSize  = 250
+(* solution visualisation *)
+Manipulate[
+ListLinePlot3D[Table[Append[Transpose[{Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}],  
+Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}]} ][[x]],x], {x,Range[sampleSize]}]],
+{mu,0.8,1.2,0.1},
+{sigma,0.0,1.0,0.01}
+]
