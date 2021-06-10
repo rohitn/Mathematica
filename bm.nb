@@ -109,11 +109,11 @@ ListLinePlot3D[Table[Append[Transpose[{Table[s0*x,{x,Rest[FoldList[Times, 1, Pre
 Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}]} ][[x]],x], {x,Range[sampleSize]}]]
 
 (*3d interactive mersion *)
-s0 = 50
-sampleSize  = 250
+s0 = 70
+sampleSize  = 500
 Manipulate[
-ListLinePlot3D[Table[Append[Transpose[{Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}],  
-Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[sigma*z, {z,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}]} ][[x]],x], {x,Range[sampleSize]}]],
+ListLinePlot3D[Table[Append[Transpose[{Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[sigma*r0, {r0,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}],  
+Table[s0*y,{y,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[sigma*r1, {r1,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}]} ][[z]],z], {z,Range[sampleSize]}]],
 {mu,0.5,1.0.1},
 {sigma,0.0,0.3,0.01},
 {dt, 0.01, 0.02, 0.005}
