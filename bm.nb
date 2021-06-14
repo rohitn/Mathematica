@@ -168,12 +168,28 @@ Table[s0*y,{y,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[s
 ]
 
 (* ...... *)
-(*3d interactive wiener process *)
-s0 = 10
+(*various 3d wiener processes*)
 dt = 0.001
-Manipulate[
+sigma = 1
+sampleSize = 75
+Animate[
 ListLinePlot3D[Table[Append[Transpose[{Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Exp[- sigma^2/2*dt + Table[sigma*r0, {r0,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}],  
 Table[s0*y,{y,Rest[FoldList[Times, 1, Prepend[Exp[- sigma^2/2*dt + Table[sigma*r1, {r1,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}]} ][[z]],z], {z,Range[sampleSize]}], PlotTheme ->"Marketing"],
-{sigma,1.0,1.5,0.01},
-{sampleSize, 50, 200, 10}
+{s0, 20,100,1},
+AnimationRate -> 0.5
+]
+
+(*3d wiener processes animated*)
+dt = 0.001
+sigma = 1
+sampleSize = 75
+s0 = 50
+plot = Table[Append[Transpose[{Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Exp[- sigma^2/2*dt + Table[sigma*r0, {r0,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}],  
+Table[s0*y,{y,Rest[FoldList[Times, 1, Prepend[Exp[- sigma^2/2*dt + Table[sigma*r1, {r1,RandomVariate[NormalDistribution[0, Sqrt[dt]], sampleSize]}]], 1]]]}]} ][[z]],z], {z,Range[sampleSize]}]
+len = Length[plot]
+temp = {}
+Animate[
+ListLinePlot3D[AppendTo[temp, plot[[x]]]],
+{x,1,len, 1},
+AnimationRate -> 0.5
 ]
