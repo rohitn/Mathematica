@@ -189,7 +189,7 @@ Table[s0*y,{y,Rest[FoldList[Times, 1, Prepend[Exp[- sigma^2/2*dt + Table[sigma*r
 len = Length[plot]
 temp = {}
 Animate[
-ListLinePlot3D[AppendTo[temp, plot[[x]]]],
+ListLinePlot3D[AppendTo[temp, plot[[x]]], PlotTheme -> "Scientific"],
 {x,1,len, 1},
 AnimationRate -> 0.5
 ]
