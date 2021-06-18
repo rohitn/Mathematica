@@ -27,3 +27,11 @@ To Do:
 ### Ito's Integral
   
   - 
+
+### Wiener-Process
+
+   - Virtually a Synonym for Brownian Motion
+
+### Geometric Brownian Motion
+
+  - Mirrors A Wiener Process, with the difference that we add a term so that it is an increasing function
