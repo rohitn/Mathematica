@@ -4,8 +4,6 @@
    2. W has independent increments: for every t > 0, W_(t+u) - W_t, u>=0, are independent of the past values W_s, s <= t
    3. W has gaussian inrements: W_(t+u) - W_t ~ N(0, u)
    4. W has continuos paths: W_t continuous in t
-   
-Basically, a wiener process is: continuous, randomly distributed,has a normal distribution and begins at 0.
 
 We can express a wiener process as:
  dS_t = sigma*S_t*dW_t
@@ -50,30 +48,6 @@ patternsy = Table[s0*x,{x,Rest[FoldList[Times, 1, preProcessy]]}]
 twoD = Transpose[{patternsx, patternsy} ]
 threeD = Table[Append[twoD[[x]],x], {x,Range[sampleSize]}]
 ListLinePlot3D[threeD]
-
-(* General Overview of 2d Geometric Brownian Motion ------------------------------------------
-Geometric Brownian motion SDE
- dS_t = mu*S_t*dt + sigma*S_t*d*W_t
-Where:
- W_t is a Wiener Process/Brownian Motion
-Here we say that:
- mu is a percentage drift: i.e how much a particle drifts per unit time
- sigma is the percentage volatility: i.e how likely the particle is to make ranom movements per unit time
-Analytic solution:
- S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* W_t)
-Solved with an ito integral.
-Wiener Process/Brownian Motion 
- 
-   1. W_0 = 0
-   2. W has independent increments: for every t > 0, W_(t+u) - W_t, u>=0, are independent of the past values W_s, s <= t
-   3. W has gaussian inrements: W_(t+u) - W_t ~ N(0, u)
-   4. W has continuos paths: W_t continuous in t
-   
-Basically, a wiener process is continuous, randomly distributed with a normal distribution and begins at 0.
-Analytic solution becomes:
- S_t = S_0 * e^((mu - sigma^2/2) * t + sigma* randomNormal(0, sqrt(t)))
-Which translates to: cumulative product inner expression
-------------------------------------------------------------------------------------------------------*)
 
 (* plot single geometric brownian motion pattern *)
 mu = 1
@@ -122,11 +96,7 @@ ListLinePlot[Transpose[Table[s0*x,{x,Rest[FoldList[Times, 1, Prepend[Table[Exp[x
 {sigM, 1.2, 5, 0.1}
 ]
 
-(* 3d Geometric Brownian motion -------- 
-Approach: 
- - Begin with 3d Wiener Process and build up, plot 1d wiener process??
- - try using 2 random distributions: one for the x movement, one for the y movement, and increment z as per ususal??
-*)
+(* 3d Geometric Brownian motion -------- *)
 mu = 1
 s0 = 100
 dt = 0.1
@@ -167,7 +137,6 @@ Table[s0*y,{y,Rest[FoldList[Times, 1, Prepend[Exp[( mu - sigma^2/2)*dt + Table[s
 {dt, 0.01, 0.02, 0.005}
 ]
 
-(* ...... *)
 (*various 3d wiener processes*)
 dt = 0.001
 sigma = 1
