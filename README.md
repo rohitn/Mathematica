@@ -7,8 +7,8 @@ To Do:
 
 Providing time permits:
 
-3. Black - Scholes Implementation
-4. Page/Project Formatting
+1. Black - Scholes Implementation
+2. Page/Project Formatting
 
 
 ### Stochastic Processes
@@ -30,7 +30,7 @@ Providing time permits:
 
 ### Ito's Integral
   
-  - 
+  - (In Progress!)
 
 ### Wiener-Process
 
