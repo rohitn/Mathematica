@@ -26,7 +26,7 @@ Providing time permits:
 
 ### Ito's Integral
   
-  - (In Progress!)
+  - Boils down to taylor series
 
 ### Wiener-Process
 
