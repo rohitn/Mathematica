@@ -1,4 +1,4 @@
-https://www.wolframcloud.com/obj/0.kai.rharris/Published/ProjectHeuristics.nb
+https://www.wolframcloud.com/obj/0.kai.rharris/Published/ProjectHueristics.nb
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMIntro0.nb
 
 To Do:
