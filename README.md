@@ -1,5 +1,5 @@
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/ProjectHueristics.nb
-https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMIntro.nb
+https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMIntro0.nb
 
 Providing time permits:
 
