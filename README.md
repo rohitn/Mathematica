@@ -8,13 +8,6 @@ https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMInteract1.nb
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMAnimate0.nb
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMAnimate1.nb
 
-
-Providing time permits:
-
-1. Black - Scholes Implementation
-2. Page/Project Formatting
-
-
 ### Stochastic Processes
 
   - A sequence of random variables
