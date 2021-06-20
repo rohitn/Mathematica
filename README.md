@@ -4,6 +4,8 @@ https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMIntro1.nb
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMIntro2.nb
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMintro3.nb
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMInteract0.nb
+https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMInteract1.nb
+
 
 Providing time permits:
 
