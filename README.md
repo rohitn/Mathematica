@@ -1,9 +1,5 @@
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/ProjectHueristics.nb
-https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMIntro0.nb
-
-To Do:
-
-1. Ito Integral heuristics
+https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMIntro.nb
 
 Providing time permits:
 
