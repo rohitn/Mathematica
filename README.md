@@ -1,15 +1,5 @@
-https://www.wolframcloud.com/obj/0.kai.rharris/Published/ProjectHueristics.nb
-https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMIntro0.nb
-https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMIntro1.nb
-https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMIntro2.nb
-https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMintro3.nb
-https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMInteract0.nb
-https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMInteract1.nb
-https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMAnimate0.nb
-https://www.wolframcloud.com/obj/0.kai.rharris/Published/BMAnimate1.nb
-
-
 https://www.wolframcloud.com/obj/0.kai.rharris/Published/KaiBMExplore.nb
+# Project One
 ### Stochastic Processes
 
   - A sequence of random variables
@@ -38,3 +28,5 @@ https://www.wolframcloud.com/obj/0.kai.rharris/Published/KaiBMExplore.nb
 ### Geometric Brownian Motion
 
   - Mirrors A Wiener Process, with the difference that we add a term so that it is an increasing function
+
+# Project Two
