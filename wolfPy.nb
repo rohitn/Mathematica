@@ -1,3 +1,5 @@
+(* simple api call *)
+
 url = "https://api.opensea.io/api/v1/asset/";
 
 asset = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb/3350/";
@@ -5,3 +7,16 @@ url = url <> asset;
 
 resp = URLExecute[url, "RawJSON"];
 image = Import[resp["image_original_url"]]
+
+(* API function call *)
+
+url =  "https://api.opensea.io/api/v1/events";
+
+asset = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb";
+
+getEvent[assetAddress_, onlyOpenSea_, \
+limit_]:=ImportString[FromCharacterCode[URLRead[HTTPRequest[URLBuild[\
+url,{"asset_contract_address"->assetAddress, "only_opensea"-> \
+onlyOpenSea, "limit"->limit}]]]["BodyBytes"]],"RawJSON"];
+
+getEvent[asset, False, 1]["asset_events"]["approved_account"];
