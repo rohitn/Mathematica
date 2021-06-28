@@ -26,6 +26,13 @@ class scrape:
 
         blockJsons = []
         for blockURL in blockRequests:
-            blockJsons.appen(requests.get(blockURL).content)
+            blockJsons.append(requests.get(blockURL).json())
+
+        stringFormat = str(blockJsons)
+
+        txtFile = open("blocksTXT.txt",'w').write(stringFormat)
+
+        with open("jsonbloc.json",'w') as js:
+            json.dump(blockJsons, js)
 
 scrape()
