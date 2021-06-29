@@ -26,7 +26,7 @@ getAsset[assetContractAddress_, tokenId_, accountAddress_] :=
      ["BodyBytes"]],
    "RawJSON"];
 
-getAsset[assetAddress, tokenId, accountAddress]
+getAsset[assetAddress, tokenId, accountAddress]//Datasets
 
 (* in dev *)
 (* systematic api call creation *)
