@@ -10,20 +10,23 @@ image = Import[resp["image_original_url"]]
 
 (* API function call *)
 
-url =  "https://api.opensea.io/api/v1/events";
+(* location of NFT on blockchain, required *)
+assetAddress = "0xb932a70a57673d89f4acffbe830e8ed7f75fb9e0";
+tokenId = "15927";
+(* owners wallet address, can be empty*)
+accountAddress = "0xeae448e1537aa3c6b2a37e2ab26bba7ca2de9436";
 
-asset = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb";
+getAsset[assetContractAddress_, tokenId_, accountAddress_] := 
+  ImportString[FromCharacterCode[URLRead[
+      HTTPRequest[
+       URLBuild[
+        "https://api.opensea.io/api/v1/asset/" <> 
+         assetContractAddress <> "/" <> tokenId <> "/",
+        {"account_address" -> accountAddress}]]]
+     ["BodyBytes"]],
+   "RawJSON"];
 
-getEvent[assetAddress_, onlyOpenSea_, limit_] := 
- ImportString[
-  FromCharacterCode[
-   URLRead[HTTPRequest[
-      URLBuild[
-       url, {"asset_contract_address" -> assetAddress, 
-        "only_opensea" -> onlyOpenSea, "limit" -> limit}]]][
-    "BodyBytes"]], "RawJSON"];
-
-getEvent[asset, False, 1][[1]] // Dataset;
+getAsset[assetAddress, tokenId, accountAddress]
 
 (* systematic api call creation *)
 
