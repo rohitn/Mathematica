@@ -32,76 +32,87 @@ getAsset[assetAddress, tokenId, accountAddress]//Datasets
 (* systematic api call creation *)
 
 getAssets[owner_, tokenIds_, assetContractAddress_, 
-  assetContractAddresses_, orderBy_, orderDirection_, offset_, 
-  limit_, collection_] := ImportString[FromCharacterCode[URLRead[
-     HTTPRequest[
-      URLBuild[
-       "https://api.opensea.io/api/v1/assets",
-       {"owner" -> owner, "token_ids" -> tokenIds, 
-        "asset_contract_address" -> assetContractAddress, 
-        "asset_contract_addresses" -> assetContractAddresses, 
-        "order_by" -> orderBy, "order_direction" -> orderDirection, 
-        "offset" -> offset, "limit" -> limit, 
-        "collection" -> collection}]]]
-    ["BodyBytes"]],
-  "RawJSON"];
+   assetContractAddresses_, orderBy_, orderDirection_, offset_, 
+   limit_, collection_] :=
+  ImportString[
+   FromCharacterCode[
+    URLRead[
+      HTTPRequest[
+       URLBuild[
+        "https://api.opensea.io/api/v1/assets",
+        {"owner" -> owner, "token_ids" -> tokenIds, 
+         "asset_contract_address" -> assetContractAddress, 
+         "asset_contract_addresses" -> assetContractAddresses, 
+         "order_by" -> orderBy, "order_direction" -> orderDirection, 
+         "offset" -> offset, "limit" -> limit, 
+         "collection" -> collection}]]]
+     ["BodyBytes"]],
+   "RawJSON"];
 
 getBundles[onSale_, owner_, assetContractAddress_, 
-  assetContractAddresses_, tokenIds_, limit_, offset_] := 
- ImportString[FromCharacterCode[URLRead[
-     HTTPRequest[
-      URLBuild[
-       "https://api.opensea.io/api/v1/bundles",
-       {"on_sale" -> onSale, "owner" -> owner, 
-        "asset_contract_address" -> assetContractAddress, 
-        "asset_contract_addresses" -> assetContractAddresses, 
-        "token_ids" -> tokenIds, "limit" -> limit, 
-        "offset" -> offset}]]]
-    ["BodyBytes"]],
-  "RawJSON"];
+   assetContractAddresses_, tokenIds_, limit_, offset_] :=
+  ImportString[
+   FromCharacterCode[
+    URLRead[
+      HTTPRequest[
+       URLBuild[
+        "https://api.opensea.io/api/v1/bundles",
+        {"on_sale" -> onSale, "owner" -> owner, 
+         "asset_contract_address" -> assetContractAddress, 
+         "asset_contract_addresses" -> assetContractAddresses, 
+         "token_ids" -> tokenIds, "limit" -> limit, 
+         "offset" -> offset}]]]
+     ["BodyBytes"]],
+   "RawJSON"];
 
-getAsset[assetContractAddress_, tokenId_] := 
- ImportString[FromCharacterCode[URLRead[
-     HTTPRequest[
-      URLBuild[
-       "https://api.opensea.io/api/v1/asset",
-       {"asset_contract_address" -> assetContractAddress, 
-        "tokenId" -> tokenId}]]]
-    ["BodyBytes"]],
-  "RawJSON"];
+getAsset[assetContractAddress_, tokenId_, accountAddress_] := 
+  ImportString[FromCharacterCode[URLRead[
+      HTTPRequest[
+       URLBuild[
+        "https://api.opensea.io/api/v1/asset/" <> 
+         assetContractAddress <> "/" <> tokenId,
+        {"account_address" -> accountAddress}]]]
+     ["BodyBytes"]],
+   "RawJSON"];
 
-getContract[assetContractAddress_] := 
- ImportString[FromCharacterCode[URLRead[
-     HTTPRequest[
-      URLBuild[
-       "https://api.opensea.io/api/v1/asset_contract",
-       {"asset_contract_address" -> assetContractAddress}]]]
-    ["BodyBytes"]],
-  "RawJSON"];
+getContract[assetContractAddress_] :=
+  ImportString[
+   FromCharacterCode[
+    URLRead[
+      HTTPRequest[
+       URLBuild[
+        "https://api.opensea.io/api/v1/asset_contract/" <> 
+         assetContractAddress]]]
+     ["BodyBytes"]],
+   "RawJSON"];
 
 getEvents[assetContractAddress_, collectionSlug_, tokenID_, 
-  accountAddress_, eventType_, onlyOpensea_, auctionType_, offset_, 
-  limit_, occuredBefore_, occuredAfter_] := 
- ImportString[FromCharacterCode[URLRead[
-     HTTPRequest[
-      URLBuild[
-       "https://api.opensea.io/api/v1/events",
-       {"asset_contract_address" -> assetContractAddress, 
-        "collection_slug" -> collectionSlug, "token_id" -> tokenID, 
-        "account_address" -> accountAddress, 
-        "event_type" -> eventType, "only_opensea" -> onlyOpensea, 
-        "auction_type" -> auctionType, "offset" -> offset, 
-        "limit" -> limit, "occurred_before" -> occuredBefore, 
-        "occurred_after" -> occuredAfter}]]]
-    ["BodyBytes"]],
-  "RawJSON"];
+   accountAddress_, eventType_, onlyOpensea_, auctionType_, offset_, 
+   limit_, occuredBefore_, occuredAfter_] :=
+  ImportString[
+   FromCharacterCode[
+    URLRead[
+      HTTPRequest[
+       URLBuild[
+        "https://api.opensea.io/api/v1/events",
+        {"asset_contract_address" -> assetContractAddress, 
+         "collection_slug" -> collectionSlug, "token_id" -> tokenID, 
+         "account_address" -> accountAddress, 
+         "event_type" -> eventType, "only_opensea" -> onlyOpensea, 
+         "auction_type" -> auctionType, "offset" -> offset, 
+         "limit" -> limit, "occurred_before" -> occuredBefore, 
+         "occurred_after" -> occuredAfter}]]]
+     ["BodyBytes"]],
+   "RawJSON"];
 
-getCollections[assetOwner_, offset_, limit_] := 
- ImportString[FromCharacterCode[URLRead[
-     HTTPRequest[
-      URLBuild[
-       "https://api.opensea.io/api/v1/collections",
-       {"asset_owner" -> assetOwner, "offset" -> offset, 
-        "limit" -> limit}]]]
-    ["BodyBytes"]],
-  "RawJSON"];
+getCollections[assetOwner_, offset_, limit_] :=
+  ImportString[
+   FromCharacterCode[
+    URLRead[
+      HTTPRequest[
+       URLBuild[
+        "https://api.opensea.io/api/v1/collections",
+        {"asset_owner" -> assetOwner, "offset" -> offset, 
+         "limit" -> limit}]]]
+     ["BodyBytes"]],
+   "RawJSON"];
