@@ -28,6 +28,7 @@ getAsset[assetContractAddress_, tokenId_, accountAddress_] :=
 
 getAsset[assetAddress, tokenId, accountAddress]
 
+(* in dev *)
 (* systematic api call creation *)
 
 getAssets[owner_, tokenIds_, assetContractAddress_, 
