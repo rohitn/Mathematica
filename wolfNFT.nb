@@ -121,3 +121,7 @@ getCollections[assetOwner_, offset_, limit_, APIKey_] :=
        {"X-API-KEY" -> APIKey}]]]
     ["BodyBytes"]],
   "RawJSON"];
+
+(* embedded code *)
+
+<iframe src="https://www.wolframcloud.com/obj/0.kai.rharris/Published/NFT_API.nb?_embed=iframe" width="600" height="800"></iframe>
