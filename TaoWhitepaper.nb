@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[    573454,      10182]
-NotebookOptionsPosition[    563784,      10015]
-NotebookOutlinePosition[    564180,      10031]
-CellTagsIndexPosition[    564137,      10028]
+NotebookDataLength[    574450,      10211]
+NotebookOptionsPosition[    564519,      10038]
+NotebookOutlinePosition[    564915,      10054]
+CellTagsIndexPosition[    564872,      10051]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -9926,6 +9926,8 @@ logic.\
   3.83632785061765*^9}},ExpressionUUID->"923da8bd-fca7-45f2-960b-\
 e81069ddd2b4"],
 
+Cell[CellGroupData[{
+
 Cell["\<\
 Prasangika: The arguments based on \[OpenCurlyDoubleQuote]Reductio Ad \
 Absurdum\[CloseCurlyDoubleQuote] are nonsense. Reasoning is impossible in a \
@@ -9936,7 +9938,28 @@ points of view, namely a mistaken perception, and a correct perception.\
   3.836327651129916*^9, 3.8363276719685774`*^9}, {3.8363278033600283`*^9, 
   3.836327805511882*^9}, {3.8363278463329973`*^9, 
   3.8363278568690033`*^9}},ExpressionUUID->"b3227621-df55-4446-9a95-\
-d4bb418b7bba"]
+d4bb418b7bba"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  "\"\<https://en.wikipedia.org/wiki/Svatantrika%E2%80%93Prasa%E1%B9%85gika_\
+distinction\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8363279075490246`*^9, 3.836327913117728*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"c91ccff6-db0d-4fd1-8ec8-fa096fb541b8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "\"https://en.wikipedia.org/wiki/Svatantrika%E2%80%93Prasa%E1%B9%85gika_\
+distinction\"", 
+   "https://en.wikipedia.org/wiki/Svatantrika%E2%80%93Prasa%E1%B9%85gika_\
+distinction"},
+  "HyperlinkURL"]], "Output",
+ CellChangeTimes->{3.836327913460244*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"586d64b3-daa7-4cce-808d-04d4ff00740b"]
+}, Open  ]]
+}, Open  ]]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -10165,22 +10188,28 @@ Cell[CellGroupData[{
 Cell[559950, 9906, 198, 4, 72, "Title",ExpressionUUID->"65012e8d-8a7a-4739-a95f-396d5f0bea83"],
 Cell[560151, 9912, 269, 4, 35, "Text",ExpressionUUID->"9c44c518-d34e-46fb-944b-a430e6cd2e1f"],
 Cell[560423, 9918, 381, 8, 32, "Item",ExpressionUUID->"923da8bd-fca7-45f2-960b-e81069ddd2b4"],
-Cell[560807, 9928, 596, 10, 53, "Item",ExpressionUUID->"b3227621-df55-4446-9a95-d4bb418b7bba"]
+Cell[CellGroupData[{
+Cell[560829, 9930, 596, 10, 53, "Item",ExpressionUUID->"b3227621-df55-4446-9a95-d4bb418b7bba"],
+Cell[CellGroupData[{
+Cell[561450, 9944, 300, 5, 29, "Input",ExpressionUUID->"c91ccff6-db0d-4fd1-8ec8-fa096fb541b8"],
+Cell[561753, 9951, 361, 8, 35, "Output",ExpressionUUID->"586d64b3-daa7-4cce-808d-04d4ff00740b"]
+}, Open  ]]
+}, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[561440, 9943, 286, 5, 72, "Title",ExpressionUUID->"56502e7e-6ca9-412e-93ea-8be0fed1f38b"],
+Cell[562175, 9966, 286, 5, 72, "Title",ExpressionUUID->"56502e7e-6ca9-412e-93ea-8be0fed1f38b"],
 Cell[CellGroupData[{
-Cell[561751, 9952, 216, 4, 54, "Subsection",ExpressionUUID->"d06572c3-b444-4a31-8b2e-fd61b5d2bbfb"],
-Cell[561970, 9958, 146, 3, 32, "Item",ExpressionUUID->"3f67b8d9-c3a4-4b6d-ae0c-21a2e1fc9483"],
-Cell[562119, 9963, 150, 3, 32, "Item",ExpressionUUID->"bdf3b8cc-0ff5-4ed1-84eb-5b7b8fa14ef5"],
-Cell[562272, 9968, 158, 3, 32, "Item",ExpressionUUID->"b4c0806d-e82a-4cd3-ae14-71ffed766841"]
+Cell[562486, 9975, 216, 4, 54, "Subsection",ExpressionUUID->"d06572c3-b444-4a31-8b2e-fd61b5d2bbfb"],
+Cell[562705, 9981, 146, 3, 32, "Item",ExpressionUUID->"3f67b8d9-c3a4-4b6d-ae0c-21a2e1fc9483"],
+Cell[562854, 9986, 150, 3, 32, "Item",ExpressionUUID->"bdf3b8cc-0ff5-4ed1-84eb-5b7b8fa14ef5"],
+Cell[563007, 9991, 158, 3, 32, "Item",ExpressionUUID->"b4c0806d-e82a-4cd3-ae14-71ffed766841"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[562467, 9976, 228, 3, 54, "Subsection",ExpressionUUID->"eb30ba6d-cc2b-4dc7-b258-93d22892b6af"],
-Cell[562698, 9981, 439, 12, 173, "Text",ExpressionUUID->"d50567d1-b6ab-47dc-b861-138de92b01c9"],
+Cell[563202, 9999, 228, 3, 54, "Subsection",ExpressionUUID->"eb30ba6d-cc2b-4dc7-b258-93d22892b6af"],
+Cell[563433, 10004, 439, 12, 173, "Text",ExpressionUUID->"d50567d1-b6ab-47dc-b861-138de92b01c9"],
 Cell[CellGroupData[{
-Cell[563162, 9997, 272, 5, 29, "Input",ExpressionUUID->"daa60dec-5ca5-4081-8d28-dbb6260a9476"],
-Cell[563437, 10004, 307, 6, 35, "Output",ExpressionUUID->"9ceda57b-4f0f-42eb-8a95-8fff4d314224"]
+Cell[563897, 10020, 272, 5, 29, "Input",ExpressionUUID->"daa60dec-5ca5-4081-8d28-dbb6260a9476"],
+Cell[564172, 10027, 307, 6, 35, "Output",ExpressionUUID->"9ceda57b-4f0f-42eb-8a95-8fff4d314224"]
 }, Open  ]]
 }, Open  ]]
 }, Closed]]
