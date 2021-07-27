@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[    573828,      10193]
-NotebookOptionsPosition[    564029,      10023]
-NotebookOutlinePosition[    564424,      10039]
-CellTagsIndexPosition[    564381,      10036]
+NotebookDataLength[    574231,      10207]
+NotebookOptionsPosition[    564301,      10034]
+NotebookOutlinePosition[    564696,      10050]
+CellTagsIndexPosition[    564653,      10047]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -10019,7 +10019,18 @@ Cell[BoxData[
 }, Open  ]]
 }, Closed]],
 
-Cell["", "Title",ExpressionUUID->"4b9fdebb-1eb2-4488-a348-63d0b7b0f40e"]
+Cell[CellGroupData[{
+
+Cell["LHF: my challenge", "Title",
+ CellChangeTimes->{{3.8363287455607834`*^9, 
+  3.836328761325136*^9}},ExpressionUUID->"8588b47b-8d61-4b86-800b-\
+050fdb685705"],
+
+Cell["", "Title",
+ CellChangeTimes->{{3.836328216944614*^9, 
+  3.8363282296144147`*^9}},ExpressionUUID->"4b9fdebb-1eb2-4488-a348-\
+63d0b7b0f40e"]
+}, Open  ]]
 },
 WindowSize->{958, 981},
 WindowMargins->{{Automatic, 0}, {Automatic, 0}},
@@ -10194,7 +10205,10 @@ Cell[563607, 10010, 307, 6, 35, "Output",ExpressionUUID->"9ceda57b-4f0f-42eb-8a9
 }, Open  ]]
 }, Open  ]]
 }, Closed]],
-Cell[563953, 10021, 72, 0, 72, "Title",ExpressionUUID->"4b9fdebb-1eb2-4488-a348-63d0b7b0f40e"]
+Cell[CellGroupData[{
+Cell[563975, 10023, 162, 3, 72, "Title",ExpressionUUID->"8588b47b-8d61-4b86-800b-050fdb685705"],
+Cell[564140, 10028, 145, 3, 98, "Title",ExpressionUUID->"4b9fdebb-1eb2-4488-a348-63d0b7b0f40e"]
+}, Open  ]]
 }
 ]
 *)
